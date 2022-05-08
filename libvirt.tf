@@ -24,15 +24,15 @@ data "template_file" "user_data" {
 
 # Use CloudInit to add the instance
 
-#resource "libvirt_cloudinit_disk" "commoninit" {
+resource "libvirt_cloudinit_disk" "commoninit" {
 
-#  name = "commoninit.iso"
+  name = "commoninit.iso"
 
-#  pool = "default" # List storage pools using virsh pool-list
+  pool = "default" # List storage pools using virsh pool-list
 
-#  user_data = "${data.template_file.user_data.rendered}"
+  user_data = "${data.template_file.user_data.rendered}"
 
-#}
+}
 
 
 
@@ -66,7 +66,7 @@ resource "libvirt_domain" "xenial" {
 
 
 
-#  cloudinit = "${libvirt_cloudinit_disk.commoninit.id}"
+  cloudinit = "${libvirt_cloudinit_disk.commoninit.id}"
 
 
 
